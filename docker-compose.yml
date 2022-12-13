@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+    db:
+        container_name: postgres-db
+        image: postgres:15.1
+        restart: always
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_USER: tcc
+            POSTGRES_PASSWORD: joao
+            POSTGRES_DB: tcc
+    deepface:
+        container_name: deepface
+        build: .
+        ports:
+            - 5000:5000
